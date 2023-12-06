@@ -1,3 +1,3 @@
 # Log_Analyzer
 
-a project by mahmud and mike
+a project by Mahmut and Mike
