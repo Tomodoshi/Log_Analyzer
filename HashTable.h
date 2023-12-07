@@ -1,8 +1,6 @@
 #pragma once
 #include <iostream>
 
-template<typename T>
-
 class HashTable
 {
 private:
@@ -12,8 +10,16 @@ private:
     int * statusArr;
 public:
     HashTable(int size);
-    void insert(T item);
-    void del(T item);
-    T search(T item);
+    void insert(int hashIndex, const fileNode& item);
+    void del(fileNode item);
+    fileNode search(fileNode item);
     ~HashTable();
 };
+
+struct fileNode
+{
+    int count;
+    std::string fileName;
+};
+
+typedef struct fileNode fileNode;

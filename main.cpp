@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include "hashTable.cpp"
 
 using namespace std;
 
@@ -16,15 +17,12 @@ int main()
     
     string line;
     while (getline(infile, line)) {
-        std::istringstream iss(line);
-        std::string temp;
+        istringstream iss(line);
+        string temp;
         iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
-        if (line.length() > 11)
-        {
-            cout<< line << endl;
-        }
+        unsigned long long result = hashFunc(line);
     }
-
+    
     infile.close();
     return 0;
 }
