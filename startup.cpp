@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "hashTable.cpp"
+#include "HashTable.cpp"
 
 using namespace std;
 
@@ -21,8 +21,7 @@ void setUp(HashTable &table)
         iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
         fileNode node;
         node.fileName = line;
-        int hashIndex = hashFunc(line);
-        table.insert(hashIndex, node);
+        table.insert(node);
     }    
     infile.close();
 }

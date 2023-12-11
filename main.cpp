@@ -1,31 +1,9 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include "hashTable.cpp"
-
-using namespace std;
+#include "startup.cpp"
 
 int main()
 {
-    ifstream infile("access_log");
-
-    if(!infile.is_open()) {
-        cerr << "Unable to open" << endl;
-        return 1;
-    }
-    
-    string line;
-    while (getline(infile, line)) {
-        istringstream iss(line);
-        string temp;
-        iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
-        unsigned long long result = hashFunc(line);
-
-        std::cout << line << "\n";
-    }
-    
-    infile.close();
-
+    HashTable table(3557);
+    setUp(table);
+    table.print();
     return 0;
 }
