@@ -6,13 +6,12 @@
 
 using namespace std;
 
-int main()
+void setUp(HashTable &table)
 {
     ifstream infile("access_log");
 
     if(!infile.is_open()) {
         cerr << "Unable to open" << endl;
-        return 1;
     }
     
     string line;
@@ -20,12 +19,10 @@ int main()
         istringstream iss(line);
         string temp;
         iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
-        unsigned long long result = hashFunc(line);
-
-        std::cout << line << "\n";
-    }
-    
+        fileNode node;
+        node.fileName = line;
+        int hashIndex = hashFunc(line);
+        table.insert(hashIndex, node);
+    }    
     infile.close();
-
-    return 0;
 }
