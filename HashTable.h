@@ -2,6 +2,7 @@
 #include <iostream>
 
 #define MAXNAMELEN 50
+typedef struct fileNode fileNode;
 
 struct fileNode
 {
@@ -10,7 +11,6 @@ struct fileNode
 };
 
 
-typedef struct fileNode fileNode;
 
 uint16_t hashFunc(const std::string& s, int size)
 {
@@ -35,7 +35,7 @@ public:
     HashTable(int size);
     void insert(fileNode& item);
     void del(fileNode item);
-    fileNode search(fileNode item, bool &found );
+    void search(fileNode item, bool &found );
     void print();
     int getSize();
     ~HashTable();
