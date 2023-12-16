@@ -11,18 +11,7 @@ struct fileNode
 };
 
 
-
-uint16_t hashFunc(const std::string& s, int size)
-{
-    uint16_t hashValue = 0;
-
-    for (size_t i = 0; i < s.length(); ++i) {
-        // Multiply the ASCII value of the character by its position and add to the hash
-        hashValue += static_cast<unsigned long long>(s[i]) * (i + 1);
-    }
-
-    return hashValue % size;
-}
+uint16_t hashFunc(const std::string& s, int size);
 
 class HashTable
 {
@@ -36,7 +25,6 @@ private:
 public:
     HashTable(int size);
     void insert(fileNode& item);
-    void del(fileNode item);
     void search(fileNode item, bool &found );
     void print();
     int getSize();
