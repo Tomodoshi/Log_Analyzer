@@ -2,8 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <unordered_map>
-#include "HashTable.cpp"
+#include "HashTable.h"
 
 using namespace std;
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <unordered_map>
 
 #define MAXNAMELEN 50
 typedef struct fileNode fileNode;
@@ -9,7 +10,6 @@ struct fileNode
     uint16_t count = 1;
     std::string fileName;
 };
-
 
 uint16_t hashFunc(const std::string& s, int size);
 

@@ -5,9 +5,6 @@
 #include <vector>
 
 
-
-
-
 uint16_t hashFunc(const std::string& s, int size)
 {
     uint16_t hashValue = 0;
