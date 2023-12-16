@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 #include "HashTable.cpp"
 
 using namespace std;
@@ -21,6 +22,7 @@ void setUp(HashTable &table)
         iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
         fileNode node;
         node.fileName = line;
+        uMap[hashFunc(line, table.getSize())] = line;
         table.insert(node);
     }    
     infile.close();

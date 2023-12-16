@@ -30,6 +30,7 @@ private:
     int size;
     int length;
     fileNode *arr;
+    std::unordered_map<uint16_t, std::string> uMap;
     fileNode *maxNodes;
     int * statusArr;
 public:
