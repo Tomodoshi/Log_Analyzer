@@ -6,6 +6,19 @@
 
 
 
+
+
+uint16_t hashFunc(const std::string& s, int size)
+{
+    uint16_t hashValue = 0;
+
+    for (size_t i = 0; i < s.length(); ++i) {
+        hashValue += static_cast<unsigned long long>(s[i]) * (i + 1);
+    }
+
+    return hashValue % size;
+}
+
 HashTable::HashTable(int size)
 {
     length = 0;
