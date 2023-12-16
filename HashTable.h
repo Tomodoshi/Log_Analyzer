@@ -30,6 +30,7 @@ private:
     int size;
     int length;
     fileNode *arr;
+    fileNode *maxNodes;
     int * statusArr;
 public:
     HashTable(int size);
