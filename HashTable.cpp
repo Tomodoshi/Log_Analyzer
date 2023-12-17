@@ -5,9 +5,6 @@
 #include <vector>
 
 
-
-
-
 uint16_t hashFunc(const std::string& s, int size)
 {
     uint16_t hashValue = 0;
@@ -37,7 +34,7 @@ HashTable::~HashTable()
 }
 
 
-void HashTable::insert(fileNode& item)
+void HashTable::insert(fileNode &item)
 {
     int hashIndex = hashFunc(item.fileName, size);
     uint16_t pcount = 0;
@@ -52,15 +49,26 @@ void HashTable::insert(fileNode& item)
 
     if (statusArr[hashIndex] != 1)
     {
-        arr[hashIndex] = item; 
+        arr[hashIndex] = item;
         statusArr[hashIndex] = 1;
         length++;
+
+        // Update the count in uMap
+        uMap[item.fileName] = 1;
     }
     else if (arr[hashIndex].fileName == item.fileName)
+    {
         arr[hashIndex].count++;
+
+        // Update the count in uMap
+        uMap[item.fileName]++;
+    }
     else
+    {
         std::cerr << "Error: The table is full. " << "Unable to resolve the collision" << std::endl;
+    }
 }
+
 
 int HashTable::getSize()
 {
