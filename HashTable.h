@@ -11,7 +11,6 @@ struct fileNode
     std::string fileName;
 };
 
-
 uint16_t hashFunc(const std::string& s, int size);
 
 class HashTable
