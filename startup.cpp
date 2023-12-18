@@ -26,9 +26,9 @@ void setUp(HashTable &table)
         iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
         fileNode node;
         node.fileName = line;
-        // myHashTable.uMap[hashFunc(line, table.getSize())] = line;
+        table.getMap()[hashFunc(line, table.getSize())] = node;
 
-        table.uMap[node.fileName]++;
+        //table.getMap()[node.fileName]++;
         table.insert(node);
     }    
     infile.close();

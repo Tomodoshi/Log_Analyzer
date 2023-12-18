@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string.h>
 #include "HashTable.h"
+#include <string.h>
 #include <algorithm>
 #include <vector>
 
@@ -33,6 +33,11 @@ HashTable::~HashTable()
     delete[] statusArr;
 }
 
+std::unordered_map<int, fileNode> HashTable::getMap()
+{
+    return uMap;
+}
+
 
 void HashTable::insert(fileNode &item)
 {
@@ -53,15 +58,15 @@ void HashTable::insert(fileNode &item)
         statusArr[hashIndex] = 1;
         length++;
 
-        // Update the count in uMap
-        uMap[item.fileName] = 1;
+        // populating uMap
+        uMap[hashFunc(item.fileName, getSize())] = item;
     }
     else if (arr[hashIndex].fileName == item.fileName)
     {
         arr[hashIndex].count++;
 
         // Update the count in uMap
-        uMap[item.fileName]++;
+        uMap[hashFunc(item.fileName, getSize())].count++;
     }
     else
     {
