@@ -11,7 +11,7 @@ using namespace std;
 
 void setUp(HashTable &table)
 {
-    HashTable myHashTable(10);
+    // HashTable myHashTable(10);
     ifstream infile("access_log");
     
 
@@ -26,10 +26,10 @@ void setUp(HashTable &table)
         iss >> temp >> temp >> temp >> temp >> temp >> temp >> line;
         fileNode node;
         node.fileName = line;
-        table.getMap()[hashFunc(line, table.getSize())] = node;
+        // table.getMap()[hashFunc(line, table.getSize())] = node;
 
-        //table.getMap()[node.fileName]++;
         table.insert(node);
+
     }    
     infile.close();
 }

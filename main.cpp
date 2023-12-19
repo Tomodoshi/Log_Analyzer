@@ -26,15 +26,15 @@ int main()
     setUp(table);
 
     ofstream uMapOutputFile("uMap_output.txt");
-    // for (const auto& entry : table.getMap())
-    // {
-    //     uMapOutputFile << entry.first << " : " << entry.second << '\n';
-    // };
-
-    for (int i = 0; i < table.getMap().size(); i++)
+    for (const auto& entry : table.uMap)
     {
-       uMapOutputFile << table.getMap()[i].fileName << "\t:\t" << table.getMap()[i].count << '\n';
-    }
+        uMapOutputFile << entry.first << " : " << entry.second << '\n';
+    };
+
+    // for (int i = 0; i < table.getMap().size(); i++)
+    // {
+    //    uMapOutputFile << table.getMap()[i].fileName << "\t:\t" << table.getMap()[i].count << '\n';
+    // }
     
 
     uMapOutputFile.close();

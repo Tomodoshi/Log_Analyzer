@@ -33,11 +33,10 @@ HashTable::~HashTable()
     delete[] statusArr;
 }
 
-std::unordered_map<int, fileNode> HashTable::getMap()
-{
-    return uMap;
-}
-
+// std::unordered_map<int, fileNode> HashTable::getMap()
+// {
+//     return uMap;
+// }
 
 void HashTable::insert(fileNode &item)
 {
@@ -58,21 +57,55 @@ void HashTable::insert(fileNode &item)
         statusArr[hashIndex] = 1;
         length++;
 
-        // populating uMap
-        uMap[hashFunc(item.fileName, getSize())] = item;
+        // Update the count in uMap
+        uMap[item.fileName] = 1;
     }
     else if (arr[hashIndex].fileName == item.fileName)
     {
         arr[hashIndex].count++;
 
         // Update the count in uMap
-        uMap[hashFunc(item.fileName, getSize())].count++;
+        uMap[item.fileName]++;
     }
     else
     {
         std::cerr << "Error: The table is full. " << "Unable to resolve the collision" << std::endl;
     }
 }
+// void HashTable::insert(fileNode &item)
+// {
+//     int hashIndex = hashFunc(item.fileName, size);
+//     uint16_t pcount = 0;
+//     uint16_t inc = 1;
+
+//     while (statusArr[hashIndex] == 1 && arr[hashIndex].fileName != item.fileName && pcount < size / 2)
+//     {
+//         pcount++;
+//         hashIndex = (hashIndex + inc) % size;
+//         inc += 2;
+//     }
+
+//     if (statusArr[hashIndex] != 1)
+//     {
+//         arr[hashIndex] = item;
+//         statusArr[hashIndex] = 1;
+//         length++;
+
+//         // populating uMap
+//         getMap[item.fileName] = item;
+//     }
+//     else if (arr[hashIndex].fileName == item.fileName)
+//     {
+//         arr[hashIndex].count++;
+
+//         // Update the count in uMap
+//         uMap[hashFunc(item.fileName, getSize())].count++;
+//     }
+//     else 
+//     {
+//         std::cerr << "Error: The table is full. " << "Unable to resolve the collision" << std::endl;
+//     }
+// }
 
 
 int HashTable::getSize()

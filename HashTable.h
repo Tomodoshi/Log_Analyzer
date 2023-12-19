@@ -19,7 +19,7 @@ private:
     int size;
     int length;
     fileNode *arr;
-    std::unordered_map<int, fileNode> uMap;
+    // std::unordered_map<int, fileNode> uMap;
     fileNode *maxNodes;
     int * statusArr;
 public:
@@ -28,8 +28,10 @@ public:
     void search(fileNode item, bool &found );
     void print();
     int getSize();
-    std::unordered_map<int, fileNode> getMap();
+    // std::unordered_map<fileNode, int> getMap();
     ~HashTable();
+    
+    std::unordered_map<std::string, int> uMap;
 
 };
 
