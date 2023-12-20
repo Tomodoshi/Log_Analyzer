@@ -28,7 +28,8 @@ int main()
     ofstream uMapOutputFile("uMap_output.txt");
     for (const auto& entry : table.uMap)
     {
-        uMapOutputFile << entry.first << " : " << entry.second << '\n';
+        fileNode record = entry.second;
+        uMapOutputFile << record.fileName << ":\t" << record.count << '\n';
     };
 
     // for (int i = 0; i < table.getMap().size(); i++)

@@ -58,14 +58,14 @@ void HashTable::insert(fileNode &item)
         length++;
 
         // Update the count in uMap
-        uMap[item.fileName] = 1;
+        uMap[item.fileName] = item;
     }
     else if (arr[hashIndex].fileName == item.fileName)
     {
         arr[hashIndex].count++;
 
         // Update the count in uMap
-        uMap[item.fileName]++;
+        uMap[item.fileName].count++;
     }
     else
     {

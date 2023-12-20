@@ -31,8 +31,6 @@ public:
     // std::unordered_map<fileNode, int> getMap();
     ~HashTable();
     
-    std::unordered_map<std::string, int> uMap;
+    std::unordered_map<std::string, fileNode> uMap;
 
 };
-
-
