@@ -44,11 +44,14 @@ void HashTable::insert(fileNode &item)
     uint16_t pcount = 0;
     uint16_t inc = 1;
 
+    
+
     while (statusArr[hashIndex] == 1 && arr[hashIndex].fileName != item.fileName && pcount < size / 2)
     {
         pcount++;
         hashIndex = (hashIndex + inc) % size;
         inc += 2;
+        std::cout << "probed" << std::endl;
     }
 
     if (statusArr[hashIndex] != 1)
@@ -56,20 +59,20 @@ void HashTable::insert(fileNode &item)
         arr[hashIndex] = item;
         statusArr[hashIndex] = 1;
         length++;
-
+        std::cout << "added to array" <<std::endl;
         // Update the count in uMap
         uMap[item.fileName] = item;
     }
     else if (arr[hashIndex].fileName == item.fileName)
     {
         arr[hashIndex].count++;
-
+        std::cout <<  "count updated" << std::endl;
         // Update the count in uMap
         uMap[item.fileName].count++;
     }
     else
     {
-        std::cerr << "Error: The table is full. " << "Unable to resolve the collision" << std::endl;
+        std::cerr << "Error: The table is full. " << "Unable to resolve the collision" << std::endl;    
     }
 }
 // void HashTable::insert(fileNode &item)

@@ -22,7 +22,7 @@ int main()
     streambuf* originalCoutStreamBuffer = cout.rdbuf();
     cout.rdbuf(outFile.rdbuf());
 
-    HashTable table(3557);
+    HashTable table(7919);
     setUp(table);
 
     ofstream uMapOutputFile("uMap_output.txt");
@@ -43,6 +43,7 @@ int main()
     outFile.close();
 
     cout.rdbuf(originalCoutStreamBuffer);
+    cout << "helo" <<endl;
 
     return 0;
 }

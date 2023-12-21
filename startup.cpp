@@ -27,7 +27,7 @@ void setUp(HashTable &table)
         fileNode node;
         node.fileName = line;
         // table.getMap()[hashFunc(line, table.getSize())] = node;
-
+        
         table.insert(node);
 
     }    
