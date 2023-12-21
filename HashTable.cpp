@@ -51,7 +51,6 @@ void HashTable::insert(fileNode &item)
         pcount++;
         hashIndex = (hashIndex + inc) % size;
         inc += 2;
-        std::cout << "probed" << std::endl;
     }
 
     if (statusArr[hashIndex] != 1)
@@ -59,14 +58,12 @@ void HashTable::insert(fileNode &item)
         arr[hashIndex] = item;
         statusArr[hashIndex] = 1;
         length++;
-        std::cout << "added to array" <<std::endl;
         // Update the count in uMap
         uMap[item.fileName] = item;
     }
     else if (arr[hashIndex].fileName == item.fileName)
     {
         arr[hashIndex].count++;
-        std::cout <<  "count updated" << std::endl;
         // Update the count in uMap
         uMap[item.fileName].count++;
     }
@@ -150,14 +147,14 @@ void HashTable::print()
         }
     }
 
-    std::sort(nodeVector.begin(), nodeVector.end(),
-              [](const fileNode &a, const fileNode &b) {
-                  return a.count > b.count;
-              });
+    // std::sort(nodeVector.begin(), nodeVector.end(),
+    //           [](const fileNode &a, const fileNode &b) {
+    //               return a.count > b.count;
+    //           });
 
 
     int printCount = std::min(10, static_cast<int>(nodeVector.size()));
-    for (int i = 0; i < printCount; i++)
+    for (int i = 0; i < size; i++)
     {
         std::cout << nodeVector[i].fileName << "\t : \t" << nodeVector[i].count << "\n";
     }
