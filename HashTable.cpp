@@ -1,7 +1,8 @@
 #include <iostream>
 #include "HashTable.h"
 #include <string.h>
-#include "sortingAlg.cpp"
+#include <algorithm>
+
 
 uint16_t hashFunc(const std::string &s, int size)
 {
@@ -76,5 +77,9 @@ void HashTable::print()
         if(count >= 10) break;
     }
 }
+
+
+
+
 
 bool HashTable::compareFileNode(fileNode &a, fileNode &b) { return a.count > b.count; }

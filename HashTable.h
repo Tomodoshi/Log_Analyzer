@@ -1,3 +1,6 @@
+#ifndef HASHTABLE
+#define HASHTABLE
+
 #pragma once
 #include <iostream>
 #include <unordered_map>
@@ -30,3 +33,5 @@ public:
     static bool compareFileNode(fileNode &a, fileNode &b);
     ~HashTable();
 };
+
+#endif //HASHTABLE

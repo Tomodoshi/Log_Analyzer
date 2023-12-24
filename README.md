@@ -1,3 +1,6 @@
 # Log_Analyzer
 
-a project by Mahmut and Mike
+CMP2003 project 
+by Mahmud and Nurettin
+
+

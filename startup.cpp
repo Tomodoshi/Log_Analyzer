@@ -4,9 +4,11 @@
 #include <string>
 #include "HashTable.cpp"
 
+
+using namespace std;
 void setUp(HashTable &table)
 {
-    ifstream infile("access_log");
+    std::ifstream infile("access_log");
 
     if (!infile.is_open())
     {
