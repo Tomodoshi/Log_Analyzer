@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <unordered_map>
+#include <vector>
 
 #define MAXNAMELEN 50
 typedef struct fileNode fileNode;
@@ -11,7 +12,7 @@ struct fileNode
     std::string fileName;
 };
 
-uint16_t hashFunc(const std::string& s, int size);
+uint16_t hashFunc(const std::string &s, int size);
 
 class HashTable
 {
@@ -19,18 +20,13 @@ private:
     int size;
     int length;
     fileNode *arr;
-    // std::unordered_map<int, fileNode> uMap;
-    fileNode *maxNodes;
-    int * statusArr;
+    int *statusArr;
+
 public:
     HashTable(int size);
-    void insert(fileNode& item);
-    void search(fileNode item, bool &found );
+    void insert(fileNode &item);
     void print();
     int getSize();
-    // std::unordered_map<fileNode, int> getMap();
+    static bool compareFileNode(fileNode &a, fileNode &b);
     ~HashTable();
-    
-    std::unordered_map<std::string, fileNode> uMap;
-
 };
