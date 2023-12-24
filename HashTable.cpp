@@ -71,7 +71,7 @@ void HashTable::print()
 
     int count = 0;
     for(const auto& record : sortedNodes){
-        std::cout << record.fileName << "\t\t:\t" << record.count << '\n';
+        std::cout << record.fileName << ": " << record.count << '\n';
         count++;
         if(count >= 10) break;
     }

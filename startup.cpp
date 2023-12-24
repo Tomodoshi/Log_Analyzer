@@ -37,7 +37,7 @@ void setUp(HashTable &table)
     infile.close();
 }
 
-void setUpMap(unordered_map<std::string, fileNode>& map)
+void setUpMap(unordered_map<std::string, fileNode> &map)
 {
     ifstream infile("access_log");
 
@@ -71,16 +71,11 @@ void setUpMap(unordered_map<std::string, fileNode>& map)
         }
     }
     map["index.html"] = htmlNode;
-
-    // for(auto& record : map)
-    // {
-    //     std::cout << record.first << "\t\t:\t" << record.second.count << '\n';
-    // }
 }
 
-bool compareFileNode(const std::pair<std::string, fileNode> &a, const std::pair<std::string, fileNode> &b) 
+bool compareFileNode(const std::pair<std::string, fileNode> &a, const std::pair<std::string, fileNode> &b)
 {
-    return a.second.count > b.second.count; 
+    return a.second.count > b.second.count;
 }
 
 void printMap(unordered_map<std::string, fileNode> &map)
@@ -89,10 +84,11 @@ void printMap(unordered_map<std::string, fileNode> &map)
     std::sort(vec.begin(), vec.end(), compareFileNode);
 
     int count = 0;
-    for (const auto& record : vec)
+    for (const auto &record : vec)
     {
-        std::cout << record.first << "\t\t:\t" << record.second.count << '\n';
+        std::cout << record.first << ": " << record.second.count << '\n';
         count++;
-        if(count >= 10) break;
+        if (count >= 10)
+            break;
     }
 }
