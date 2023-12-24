@@ -7,7 +7,7 @@ typedef struct fileNode fileNode;
 
 struct fileNode
 {
-    uint16_t count = 1;
+    uint32_t count = 1;
     std::string fileName;
 };
 
