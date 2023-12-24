@@ -38,7 +38,6 @@ void setUp(HashTable &table)
         node.fileName = line;
         table.insert(node);
         }
-
     }    
     table.insert(htmlNode);
     infile.close();

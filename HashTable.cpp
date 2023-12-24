@@ -2,7 +2,6 @@
 #include "HashTable.h"
 #include <string.h>
 #include "sortingAlg.cpp"
-#include <vector>
 
 
 uint16_t hashFunc(const std::string& s, int size)
@@ -54,7 +53,7 @@ void HashTable::insert(fileNode &item)
         statusArr[hashIndex] = 1;
         length++;
         // Update the count in uMap
-        uMap[item.fileName] = item;
+        //uMap[item.fileName] = item;
     }
     else if (arr[hashIndex].fileName == item.fileName)
     {
@@ -72,18 +71,22 @@ int HashTable::getSize(){ return size; }
 
 void HashTable::print()
 {
-    fileNode toBeSorted[size];
-    for (int i = 0; i < size; i++)
-    {
-        toBeSorted[i] = arr[i];
-    }
+    std::vector<fileNode> sortedNodes(arr, arr + size);
+    std::sort(sortedNodes.begin(), sortedNodes.end(), compareFileNode);
 
-    quickSort(toBeSorted, 0, size);
+    //quickSort(toBeSorted, 0, size);
 
     for (int i = 0; i < 10; i++)
     {
-        std::cout << toBeSorted[i].fileName << "\t : \t" << toBeSorted[i].count << "\n";
+        std::cout << sortedNodes[i].fileName << "\t : \t" << sortedNodes[i].count << "\n";
     }
+
+
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     std::cout << toBeSorted[i].fileName << "\t : \t" << toBeSorted[i].count << "\n";
+    // }
 
 }
 
+bool HashTable::compareFileNode(fileNode &a, fileNode &b) { return a.count > b.count; }
