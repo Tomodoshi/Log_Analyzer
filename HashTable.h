@@ -12,7 +12,7 @@ struct fileNode
     std::string fileName;
 };
 
-uint16_t hashFunc(const std::string& s, int size);
+uint16_t hashFunc(const std::string &s, int size);
 
 class HashTable
 {
@@ -20,17 +20,13 @@ private:
     int size;
     int length;
     fileNode *arr;
-    // std::unordered_map<int, fileNode> uMap;
-    int * statusArr;
+    int *statusArr;
+
 public:
     HashTable(int size);
-    void insert(fileNode& item);
+    void insert(fileNode &item);
     void print();
     int getSize();
     static bool compareFileNode(fileNode &a, fileNode &b);
-    // std::unordered_map<fileNode, int> getMap();
     ~HashTable();
-    
-    std::unordered_map<std::string, fileNode> uMap;
-
 };
