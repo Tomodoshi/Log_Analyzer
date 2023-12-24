@@ -1,4 +1,3 @@
-#include <iostream>
 #include "HashTable.h"
 #include <string.h>
 #include <algorithm>
