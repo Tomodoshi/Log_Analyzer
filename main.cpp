@@ -43,7 +43,7 @@ int main()
     outFile.close();
 
     cout.rdbuf(originalCoutStreamBuffer);
-    cout << "helo" <<endl;
+    cout << "helo" << endl;
 
     return 0;
 }
